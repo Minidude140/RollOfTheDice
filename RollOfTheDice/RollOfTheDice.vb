@@ -12,7 +12,8 @@
 'Data row --> the total count Of how many times Each number came up
 
 'TODO
-'[]Create a function to Pull random number 1-6
+'[~]Create a function to Pull random number 1-6
+'[]Create main loop with quit functionality
 '[]Call function twice and assign to diceOne and diceTwo
 '[]Add two dice rolls together to diceTotal
 '[]create an array diceRollTally() where first row is possible roll totals {2, 3, 4, 5, 6, 7, 8, 9, 10 ,11, 12}
@@ -32,7 +33,18 @@ Module RollOfTheDice
 
 
     Sub Main()
-
+        For i = 0 To 100
+            Console.WriteLine(DiceRoll())
+        Next
+        Console.Read()
     End Sub
+
+    Function DiceRoll() As Integer
+        'random number 1-6
+        Dim randomNumber As Integer
+        Randomize()
+        randomNumber = CInt((Rnd() * (6 - 1)) + 1)
+        Return randomNumber
+    End Function
 
 End Module
