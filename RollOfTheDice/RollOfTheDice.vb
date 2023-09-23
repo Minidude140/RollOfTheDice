@@ -13,7 +13,7 @@
 
 'TODO
 '[~]Create a function to Pull random number 1-6
-'[]Create main loop with quit functionality
+'[~]Create main loop with quit functionality
 '[]Call function twice and assign to diceOne and diceTwo
 '[]Add two dice rolls together to diceTotal
 '[]create an array diceRollTally() where first row is possible roll totals {2, 3, 4, 5, 6, 7, 8, 9, 10 ,11, 12}
@@ -27,15 +27,25 @@ Option Strict On
 
 Module RollOfTheDice
 
+    Dim userInput As String
     Dim diceOne As Integer
     Dim diceTwo As Integer
     Dim diceTotal As Integer
 
 
     Sub Main()
-        For i = 0 To 100
-            Console.WriteLine(DiceRoll())
-        Next
+        Do
+            Console.WriteLine("Press Enter to roll dice." & vbLf & "(Enter 'Q' to quit)" & vbLf)
+            userInput = Console.ReadLine()
+            Console.WriteLine()
+            Select Case userInput
+                Case = "Q", "q"
+                    Exit Do
+                Case Else
+                    'Roll die here
+                    Console.WriteLine(DiceRoll() & vbLf)
+            End Select
+        Loop
         Console.Read()
     End Sub
 
