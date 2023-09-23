@@ -14,7 +14,7 @@
 'TODO
 '[~]Create a function to Pull random number 1-6
 '[~]Create main loop with quit functionality
-'[]Call function twice and assign to diceOne and diceTwo
+'[~]Call function twice and assign to diceOne and diceTwo
 '[]Add two dice rolls together to diceTotal
 '[]create an array diceRollTally() where first row is possible roll totals {2, 3, 4, 5, 6, 7, 8, 9, 10 ,11, 12}
 '[]second row of diceRollTally() should be the number of times the diceTotal equals the corresponding column
@@ -43,10 +43,11 @@ Module RollOfTheDice
                     Exit Do
                 Case Else
                     'Roll die here
-                    Console.WriteLine(DiceRoll() & vbLf)
+                    diceOne = DiceRoll()
+                    diceTwo = DiceRoll()
+                    Console.WriteLine($"You rolled {diceOne} and {diceTwo}" & vbLf)
             End Select
         Loop
-        Console.Read()
     End Sub
 
     Function DiceRoll() As Integer
