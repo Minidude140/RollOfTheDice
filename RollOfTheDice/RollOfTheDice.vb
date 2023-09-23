@@ -4,13 +4,6 @@
 'Roll of the Dice
 'https://github.com/Minidude140/RollOfTheDice.git
 
-'ASSIGNMENT INSTRUCTIONS
-'Write a program that rolls two six-sided dice 1,000 times And accumulates the count Of Each number rolled efficiently In an array.
-'Display the results In the console In formatted columns With headers
-
-'Header row--> the roll result numbers 2 To 12
-'Data row --> the total count Of how many times Each number came up
-
 'TODO
 '[~]Create a function to Pull random number 1-6
 '[~]Create main loop with quit functionality
@@ -36,12 +29,15 @@ Module RollOfTheDice
 
     Sub Main()
         Do
-            Console.WriteLine("Press Enter to roll two dice 1,000 times and log their totals." & vbLf & "(Enter 'Q' to quit)" & vbLf)
+            Console.WriteLine("Press Enter to roll two dice 1,000 times and log their totals." & vbLf & "(Enter 'Q' to quit or 'C' to clear previous totals)" & vbLf)
             userInput = Console.ReadLine()
             Console.WriteLine()
             Select Case userInput
                 Case = "Q", "q"
                     Exit Do
+                Case = "C", "c"
+                    ReDim diceRollTally(10)
+                    DrawDiceRolls(diceRollTally)
                 Case Else
                     'Roll die here
                     For i = 0 To 1000
@@ -79,7 +75,6 @@ Module RollOfTheDice
                     Next
                     DrawDiceRolls(diceRollTally)
             End Select
-            ReDim diceRollTally(10)
         Loop
     End Sub
 
