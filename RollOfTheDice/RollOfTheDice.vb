@@ -40,14 +40,12 @@ Module RollOfTheDice
                     DrawDiceRolls(diceRollTally)
                 Case Else
                     'Roll die here
-                    For i = 0 To 1000
+                    For i = 1 To 1000
 
                         diceOne = DiceRoll()
                         diceTwo = DiceRoll()
                         diceTotal = AddTwoIntegers(diceOne, diceTwo)
 
-                        'Console.WriteLine($"You rolled {diceOne} and {diceTwo}." & vbLf & $"The total dice roll is {diceTotal}." & vbLf)
-                        'evaluate diceTotal and increment corresponding array element
                         Select Case diceTotal
                             Case = 2
                                 diceRollTally(0) += 1
