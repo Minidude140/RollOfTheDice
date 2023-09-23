@@ -15,7 +15,7 @@
 '[~]Create a function to Pull random number 1-6
 '[~]Create main loop with quit functionality
 '[~]Call function twice and assign to diceOne and diceTwo
-'[]Add two dice rolls together to diceTotal
+'[~]Add two dice rolls together to diceTotal
 '[]create an array diceRollTally() where first row is possible roll totals {2, 3, 4, 5, 6, 7, 8, 9, 10 ,11, 12}
 '[]second row of diceRollTally() should be the number of times the diceTotal equals the corresponding column
 '[]compare diceTotal to the possible rolls and increment corresponding array element
@@ -45,7 +45,9 @@ Module RollOfTheDice
                     'Roll die here
                     diceOne = DiceRoll()
                     diceTwo = DiceRoll()
-                    Console.WriteLine($"You rolled {diceOne} and {diceTwo}" & vbLf)
+                    diceTotal = AddTwoIntegers(diceOne, diceTwo)
+
+                    Console.WriteLine($"You rolled {diceOne} and {diceTwo}." & vbLf & $"The total dice roll is {diceTotal}." & vbLf)
             End Select
         Loop
     End Sub
@@ -56,6 +58,13 @@ Module RollOfTheDice
         Randomize()
         randomNumber = CInt((Rnd() * (6 - 1)) + 1)
         Return randomNumber
+    End Function
+
+    Function AddTwoIntegers(numberOne As Integer, numberTwo As Integer) As Integer
+        'adds two numbers and returns the total
+        Dim summation As Integer
+        summation = numberOne + numberTwo
+        Return summation
     End Function
 
 End Module
