@@ -97,18 +97,20 @@ Module RollOfTheDice
         'create header with possible rolls
         Dim header = New String() {"2  |", "3  |", "4  |", "5  |", "6  |", "7  |", "8  |", "9  |", "10  |", "11  |", "12  |"}
         'Draw out top border and header
-        Console.WriteLine(StrDup(77, "-"))
+        Console.WriteLine(StrDup(78, "-"))
+        Console.Write("|")
         For i = LBound(header) To UBound(header)
             Console.Write(header(i).PadLeft(7))
         Next
         'Draw out diceRollTally() with borders
-        Console.WriteLine(vbLf & StrDup(77, "-"))
+        Console.WriteLine(vbLf & StrDup(78, "-"))
+        Console.Write("|")
         For i = LBound(diceRollTally) To UBound(diceRollTally)
             Dim currentTotal As String
             currentTotal = CStr(diceRollTally(i) & "  |")
             Console.Write(currentTotal.PadLeft(7))
         Next
-        Console.WriteLine(vbLf & StrDup(77, "-") & vbLf)
+        Console.WriteLine(vbLf & StrDup(78, "-") & vbLf)
 
     End Sub
 
