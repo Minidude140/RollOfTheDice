@@ -17,11 +17,10 @@
 '[~]Call function twice and assign to diceOne and diceTwo
 '[~]Add two dice rolls together to diceTotal
 '[~]create an array diceRollTally() where first row is possible roll totals {2, 3, 4, 5, 6, 7, 8, 9, 10 ,11, 12}  ***actually one dimensional array.  First "Row" is just drawn as a header***
-'[]Create draw array Sub
-'[]second row of diceRollTally() should be the number of times the diceTotal equals the corresponding column
-'[]compare diceTotal to the possible rolls and increment corresponding array element
+'[~]Create draw array Sub
+'[~]second row of diceRollTally() should be the number of times the diceTotal equals the corresponding column
+'[~]compare diceTotal to the possible rolls and increment corresponding array element
 '[]repeat 1000 times and record totals in diceRollTally() array
-'[]we might want do separate variables for each total and add them all to the array after the 1000 rolls
 
 Option Explicit On
 Option Strict On
@@ -50,7 +49,31 @@ Module RollOfTheDice
                     diceTotal = AddTwoIntegers(diceOne, diceTwo)
 
                     Console.WriteLine($"You rolled {diceOne} and {diceTwo}." & vbLf & $"The total dice roll is {diceTotal}." & vbLf)
-
+                    'evaluate diceTotal and increment corresponding array element
+                    Select Case diceTotal
+                        Case = 2
+                            diceRollTally(0) += 1
+                        Case = 3
+                            diceRollTally(1) += 1
+                        Case = 4
+                            diceRollTally(2) += 1
+                        Case = 5
+                            diceRollTally(3) += 1
+                        Case = 6
+                            diceRollTally(4) += 1
+                        Case = 7
+                            diceRollTally(5) += 1
+                        Case = 8
+                            diceRollTally(6) += 1
+                        Case = 9
+                            diceRollTally(7) += 1
+                        Case = 10
+                            diceRollTally(8) += 1
+                        Case = 11
+                            diceRollTally(9) += 1
+                        Case = 12
+                            diceRollTally(10) += 1
+                    End Select
                     DrawDiceRolls(diceRollTally)
             End Select
         Loop
