@@ -20,7 +20,7 @@
 '[~]Create draw array Sub
 '[~]second row of diceRollTally() should be the number of times the diceTotal equals the corresponding column
 '[~]compare diceTotal to the possible rolls and increment corresponding array element
-'[]repeat 1000 times and record totals in diceRollTally() array
+'[~]repeat 1000 times and record totals in diceRollTally() array
 
 Option Explicit On
 Option Strict On
@@ -36,7 +36,7 @@ Module RollOfTheDice
 
     Sub Main()
         Do
-            Console.WriteLine("Press Enter to roll dice." & vbLf & "(Enter 'Q' to quit)" & vbLf)
+            Console.WriteLine("Press Enter to roll two dice 1,000 times and log their totals." & vbLf & "(Enter 'Q' to quit)" & vbLf)
             userInput = Console.ReadLine()
             Console.WriteLine()
             Select Case userInput
@@ -44,38 +44,42 @@ Module RollOfTheDice
                     Exit Do
                 Case Else
                     'Roll die here
-                    diceOne = DiceRoll()
-                    diceTwo = DiceRoll()
-                    diceTotal = AddTwoIntegers(diceOne, diceTwo)
+                    For i = 0 To 1000
 
-                    Console.WriteLine($"You rolled {diceOne} and {diceTwo}." & vbLf & $"The total dice roll is {diceTotal}." & vbLf)
-                    'evaluate diceTotal and increment corresponding array element
-                    Select Case diceTotal
-                        Case = 2
-                            diceRollTally(0) += 1
-                        Case = 3
-                            diceRollTally(1) += 1
-                        Case = 4
-                            diceRollTally(2) += 1
-                        Case = 5
-                            diceRollTally(3) += 1
-                        Case = 6
-                            diceRollTally(4) += 1
-                        Case = 7
-                            diceRollTally(5) += 1
-                        Case = 8
-                            diceRollTally(6) += 1
-                        Case = 9
-                            diceRollTally(7) += 1
-                        Case = 10
-                            diceRollTally(8) += 1
-                        Case = 11
-                            diceRollTally(9) += 1
-                        Case = 12
-                            diceRollTally(10) += 1
-                    End Select
+                        diceOne = DiceRoll()
+                        diceTwo = DiceRoll()
+                        diceTotal = AddTwoIntegers(diceOne, diceTwo)
+
+                        'Console.WriteLine($"You rolled {diceOne} and {diceTwo}." & vbLf & $"The total dice roll is {diceTotal}." & vbLf)
+                        'evaluate diceTotal and increment corresponding array element
+                        Select Case diceTotal
+                            Case = 2
+                                diceRollTally(0) += 1
+                            Case = 3
+                                diceRollTally(1) += 1
+                            Case = 4
+                                diceRollTally(2) += 1
+                            Case = 5
+                                diceRollTally(3) += 1
+                            Case = 6
+                                diceRollTally(4) += 1
+                            Case = 7
+                                diceRollTally(5) += 1
+                            Case = 8
+                                diceRollTally(6) += 1
+                            Case = 9
+                                diceRollTally(7) += 1
+                            Case = 10
+                                diceRollTally(8) += 1
+                            Case = 11
+                                diceRollTally(9) += 1
+                            Case = 12
+                                diceRollTally(10) += 1
+                        End Select
+                    Next
                     DrawDiceRolls(diceRollTally)
             End Select
+            ReDim diceRollTally(10)
         Loop
     End Sub
 
