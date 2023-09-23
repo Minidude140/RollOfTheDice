@@ -25,6 +25,7 @@ Module RollOfTheDice
     Dim diceTwo As Integer
     Dim diceTotal As Integer
     Dim diceRollTally() As Integer = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Dim numberOfRolls As Integer = 0
 
 
     Sub Main()
@@ -39,8 +40,9 @@ Module RollOfTheDice
                     'Exits Program
                     Exit Do
                 Case = "C", "c"
-                    'Clears any previous total counts
+                    'Clears any previous total counts and number of rolls
                     ReDim diceRollTally(10)
+                    numberOfRolls = 0
                     DrawDiceRolls(diceRollTally)
                 Case Else
                     'Roll die 1,000 times
@@ -53,7 +55,8 @@ Module RollOfTheDice
                         'evaluates diceTotal and increments corresponding array element
                         EvaluateTotal(diceTotal)
                     Next
-                    'Draws Array elements and header
+                    'Draws Array elements and header counts total rolls
+                    numberOfRolls += 1
                     DrawDiceRolls(diceRollTally)
             End Select
         Loop
@@ -92,6 +95,12 @@ Module RollOfTheDice
             Console.Write(currentTotal.PadLeft(7))
         Next
         Console.WriteLine(vbLf & StrDup(78, "-") & vbLf)
+        'Reports the total number of rolls after array is drawn
+        If numberOfRolls = 0 Then
+            Console.WriteLine("Total Rolls: 0" & vbLf)
+        Else
+            Console.WriteLine($"Total Rolls: {numberOfRolls},000" & vbLf)
+        End If
 
     End Sub
 
