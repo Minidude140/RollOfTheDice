@@ -16,7 +16,8 @@
 '[~]Create main loop with quit functionality
 '[~]Call function twice and assign to diceOne and diceTwo
 '[~]Add two dice rolls together to diceTotal
-'[]create an array diceRollTally() where first row is possible roll totals {2, 3, 4, 5, 6, 7, 8, 9, 10 ,11, 12}
+'[~]create an array diceRollTally() where first row is possible roll totals {2, 3, 4, 5, 6, 7, 8, 9, 10 ,11, 12}  ***actually one dimensional array.  First "Row" is just drawn as a header***
+'[]Create draw array Sub
 '[]second row of diceRollTally() should be the number of times the diceTotal equals the corresponding column
 '[]compare diceTotal to the possible rolls and increment corresponding array element
 '[]repeat 1000 times and record totals in diceRollTally() array
@@ -31,6 +32,7 @@ Module RollOfTheDice
     Dim diceOne As Integer
     Dim diceTwo As Integer
     Dim diceTotal As Integer
+    Dim diceRollTally() As Integer = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 
     Sub Main()
@@ -48,6 +50,8 @@ Module RollOfTheDice
                     diceTotal = AddTwoIntegers(diceOne, diceTwo)
 
                     Console.WriteLine($"You rolled {diceOne} and {diceTwo}." & vbLf & $"The total dice roll is {diceTotal}." & vbLf)
+
+                    DrawDiceRolls(diceRollTally)
             End Select
         Loop
     End Sub
@@ -66,5 +70,22 @@ Module RollOfTheDice
         summation = numberOne + numberTwo
         Return summation
     End Function
+
+    Sub DrawDiceRolls(diceRollTally() As Integer)
+        'create header with possible rolls
+        Dim header = New String() {"2  |", "3  |", "4  |", "5  |", "6  |", "7  |", "8  |", "9  |", "10  |", "11  |", "12  |"}
+
+        For i = LBound(header) To UBound(header)
+            Console.Write(header(i).PadLeft(5))
+        Next
+        Console.WriteLine()
+        For i = LBound(diceRollTally) To UBound(diceRollTally)
+            Dim currentTotal As String
+            currentTotal = CStr(diceRollTally(i) & " |")
+            Console.Write(currentTotal.PadLeft(5))
+        Next
+        Console.WriteLine()
+
+    End Sub
 
 End Module
