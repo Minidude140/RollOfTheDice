@@ -29,48 +29,31 @@ Module RollOfTheDice
 
     Sub Main()
         Do
+            'Prompt user for input
             Console.WriteLine("Press Enter to roll two dice 1,000 times and log their totals." & vbLf & "(Enter 'Q' to quit or 'C' to clear previous totals)" & vbLf)
             userInput = Console.ReadLine()
             Console.WriteLine()
+
             Select Case userInput
                 Case = "Q", "q"
+                    'Exits Program
                     Exit Do
                 Case = "C", "c"
+                    'Clears any previous total counts
                     ReDim diceRollTally(10)
                     DrawDiceRolls(diceRollTally)
                 Case Else
-                    'Roll die here
+                    'Roll die 1,000 times
                     For i = 1 To 1000
-
+                        'Rolls two dice and adds them together
                         diceOne = DiceRoll()
                         diceTwo = DiceRoll()
                         diceTotal = AddTwoIntegers(diceOne, diceTwo)
 
-                        Select Case diceTotal
-                            Case = 2
-                                diceRollTally(0) += 1
-                            Case = 3
-                                diceRollTally(1) += 1
-                            Case = 4
-                                diceRollTally(2) += 1
-                            Case = 5
-                                diceRollTally(3) += 1
-                            Case = 6
-                                diceRollTally(4) += 1
-                            Case = 7
-                                diceRollTally(5) += 1
-                            Case = 8
-                                diceRollTally(6) += 1
-                            Case = 9
-                                diceRollTally(7) += 1
-                            Case = 10
-                                diceRollTally(8) += 1
-                            Case = 11
-                                diceRollTally(9) += 1
-                            Case = 12
-                                diceRollTally(10) += 1
-                        End Select
+                        'evaluates diceTotal and increments corresponding array element
+                        EvaluateTotal(diceTotal)
                     Next
+                    'Draws Array elements and header
                     DrawDiceRolls(diceRollTally)
             End Select
         Loop
@@ -110,6 +93,34 @@ Module RollOfTheDice
         Next
         Console.WriteLine(vbLf & StrDup(78, "-") & vbLf)
 
+    End Sub
+
+    Sub EvaluateTotal(diceTotal As Integer)
+        'evaluates diceTotal and increments corresponding array element
+        Select Case diceTotal
+            Case = 2
+                diceRollTally(0) += 1
+            Case = 3
+                diceRollTally(1) += 1
+            Case = 4
+                diceRollTally(2) += 1
+            Case = 5
+                diceRollTally(3) += 1
+            Case = 6
+                diceRollTally(4) += 1
+            Case = 7
+                diceRollTally(5) += 1
+            Case = 8
+                diceRollTally(6) += 1
+            Case = 9
+                diceRollTally(7) += 1
+            Case = 10
+                diceRollTally(8) += 1
+            Case = 11
+                diceRollTally(9) += 1
+            Case = 12
+                diceRollTally(10) += 1
+        End Select
     End Sub
 
 End Module
